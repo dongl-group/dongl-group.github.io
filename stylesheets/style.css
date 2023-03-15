@@ -116,9 +116,9 @@ img {
 header {
   width:180px;
   float:left;
-  position:fixed;
-  -webkit-font-smoothing:subpixel-antialiased;
+
 }
+
 
 header ul {
   list-style:none;
