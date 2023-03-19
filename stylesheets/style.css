@@ -1,6 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700italic,700);
 
+.wrapper {
 
+  margin: 0 auto;
+  display: block;
+  background-color: #f0f0f0;
+}
+section {
+  width:60%;
+  float:right;
+  padding-bottom:50px;
+  padding-left:0px;
+  background-color: #f0f0f0;
+}
 header ul {
     display: block;
     list-style-type: disc;
@@ -29,10 +41,11 @@ header ul a{
     padding: 8px 10px;
 }
 header {
-  width:400px;
+  width:40%;
   float:left;
-  margin: 0 0 0px 280px;
+  background-color: #f0f0f0;
 }
+
 body {
   background-color: #f0f0f0;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -95,9 +108,7 @@ a:hover small {
   color:#777;
 }
 
-.wrapper {
-  width:1200px;
-}
+
 
 blockquote {
   border-left:1px solid #e5e5e5;
@@ -179,12 +190,7 @@ header ul a strong {
   color:#222;
 }
 
-section {
-  width:500px;
-  float:right;
-  padding-bottom:50px;
-  padding-left:0px;
-}
+
 
 
 small {
