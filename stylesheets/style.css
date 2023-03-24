@@ -22,6 +22,9 @@
 .menbers_media{
     display:none;
 }
+.container ol{
+    padding-inline-start:1%;
+}
 .container { width: 72%;
     top: 0.6%;
     border-radius: 0px;
@@ -92,18 +95,14 @@ p {
 }
 h1 {
     font-size : 34px;
-    margin : 0;
-    padding : 0;
+
 }
 h2 {
     font-size : 20px;
-    margin : 0;
-    padding : 0;
+
 }
 h3 {
     font-size : 18px;
-    margin : 8;
-    padding : 0;
 }
 lr {
     font-size : 14px;
@@ -167,11 +166,6 @@ p, ul, ol, table, pre, dl {
 h1, h2, h3, h7 {
   line-height:1.1;
 }
-
-h1 {
-  font-size:40px;
-}
-
 h7 {
   font-size:22px;
 }
