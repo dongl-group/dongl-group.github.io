@@ -7,8 +7,8 @@
 .publogo {width: 100%;height: 80%;}
 .publication{
  display:flex;
- height:3.5%;
- padding-bottom:3%;
+ height:4%;
+ padding-bottom:6%;
 
 }
 .pictures{
@@ -336,6 +336,7 @@ font-size:11px;
  display:flex;
  flex-direction: column;
  width:100%;
+ padding-bottom: 5%;
 
 }
 .pictures{
@@ -347,6 +348,7 @@ font-size:11px;
     width:70%;
     height:70%;
     left:15%;
+    padding-bottom: 4%;
 }
 div.bgd{
     display:none;
