@@ -65,11 +65,13 @@ section {
 .members li {
     list-style-type: none;
     width: 95%;
-    border-bottom: 1px solid #eaeaea;
     line-height: 30px;
     color: #373737;
     font-size: 15px;
     padding: 8px 10px;
+}
+.members ul{
+    border-top: 1px solid #eaeaea;
 }
 header {
   width:35%;
