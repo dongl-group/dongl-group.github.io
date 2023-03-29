@@ -13,6 +13,7 @@
 }
 #map1{
     position:fixed;
+    width: 15%;
 }
 #map2{
     display:none;
@@ -430,7 +431,7 @@ ul,ol {
 }
 
 .publication p{
-    font-size:18px;
+    font-size:16px;
 }
 
     .container{
