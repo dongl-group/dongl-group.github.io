@@ -315,24 +315,19 @@ footer {
     font-size:14px;
 }
 }
-@media print, screen and (max-width: 650px){
-.text {
-    font-size:10px;
-}
-}
 
 
 
 
 
-@media print, screen and (max-width: 980px) {
+@media print, screen and (max-width: 620px) {
 h2 {
-   font-size:16px;
+   font-size:14px;
    margin:0 0 2%;
 
 }
 h1{
-    font-size:20px;
+    font-size:16px;
     margin:0 0 2%;
 }
 h3 {
@@ -409,7 +404,7 @@ ul,ol {
 }
 
 .publication p{
-    font-size:18px;
+    font-size:12px;
 }
 
     .container{
