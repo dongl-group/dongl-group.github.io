@@ -11,6 +11,13 @@
  padding-bottom:6%;
 
 }
+#map1{
+    position:fixed;
+}
+#map2{
+    display:none;
+}
+
 .pictures{
     width: 60%;
     height: 100%;
@@ -339,6 +346,20 @@ h3 {
     font-size:12px;
     margin:0 0 2%;
 }
+#map1{
+    display:none;
+}
+#map2{
+    display:block;
+}
+#map2 center {
+    position:relative;
+    left:15%;
+    width:70%;
+    height:30%;
+}
+
+
 p{
 font-size:11px;
 }
