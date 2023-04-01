@@ -8,13 +8,17 @@
     position:fixed;
         width: 15%;
 }
+#map3{
+    width:100%;
+
+}
 #map2{
     display:none;
 }
 .publogo {width: 100%;height: 80%;}
 .publication{
  display:flex;
- height:3.5%;
+ height: 3%;
  padding-bottom:6%;
 
 }
@@ -32,6 +36,7 @@
     width:100%;
     height:100%;
     padding-left: 3%;
+    padding-top: 2%;
 }
 .menbers_media{
     display:none;
@@ -40,7 +45,7 @@
     padding-inline-start:1%;
 }
 .container { width: 72%;
-    top: 0.6%;
+    top: 0.3%;
     border-radius: 0px;
     float: left;
     position: relative;
@@ -140,7 +145,7 @@ body {
     background:#ffffff;
     display: block;
     float:right;
-    top:0.6% ;
+    top:0.3% ;
     clear:both;
     padding-top: 20px;
     position:relative;;
