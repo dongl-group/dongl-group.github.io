@@ -183,6 +183,9 @@ a:hover {
 a, a:visited {
     color : #0050e7;
 }
+.menbers_media a {
+    color : #000;
+}
 .publication p {
     height : 100px;
     padding-top : 0px;
