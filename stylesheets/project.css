@@ -7,6 +7,14 @@ body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: none;
 }
+#header{
+  position:relative;
+  left:2%;
+}
+.part{
+
+}
+
 
 table {
   /*border: 1px solid black;*/
