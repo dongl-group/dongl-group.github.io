@@ -12,7 +12,8 @@ body {
   left:2%;
 }
 .part{
-
+  position:relative;
+  width: 96%;
 }
 
 
