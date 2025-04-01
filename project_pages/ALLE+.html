@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>ALL-E: Aesthetics-guided Low-light Image Enhancement</title>
+    <title>Aesthetics-guided Low-light Enhancement</title>
     <!--=================Meta tags==========================-->
     <meta name="robots" content="index,follow">
     <meta name="description" content="Aesthetics-guided Low-level Image Enhancement">
@@ -141,10 +141,10 @@
     <div id="content">
         <div id="content-inner">
             <div class="section head">
-                <h1>ALL-E+: Aesthetics-guided Low-level Image Enhancement</h1>
+                <h1>Aesthetics-guided Low-light Enhancement</h1>
                 <!--=================Authors==========================-->
                 <div class="authors" >
-                    <p>Dong Liang<sup>1</sup>,&nbsp;Yuanhang Gao <sup>1</sup>, &nbsp; Ling Li <sup>1</sup>, &nbsp;
+                    <p>Dong Liang<sup>1</sup>,&nbsp;Yuanhang Gao <sup>1</sup>, &nbsp; Ling Li <sup>1</sup>, &nbsp;Zhengyan Xu <sup>1</sup>,
                      Sheng-Jun Huang <sup>1</sup>, &nbsp;Songcan Chen <sup>1</sup>&nbsp;</p>
                 </div>
                 <div class="affiliations ">
@@ -157,7 +157,7 @@
                 <br>
                 <div style="text-align: justify; display: block; margin-right: auto;">
                     <p>
-                        Evaluating the performance of low-level image enhancement is highly subjective, thus making integrating human preferences into image enhancement a necessity. Existing methods fail to consider this and present a series of potentially valid heuristic criteria for training enhancement models. In this paper, we propose a new paradigm, i.e., aesthetics-guided low-light image enhancement (ALL- E), which introduces aesthetic preferences to LLE and motivates training in a reinforcement learning framework with an aesthetic reward. Each pixel, functioning as an agent, refines itself by recursive actions, i.e., and its corresponding adjustment curve is estimated sequentially. We further present an extended version of ALL-E, called ALL-E+, which leverages the same reinforcement learning framework to achieve aesthetic-guided denoising, only requiring modifying the action space and reward. By sequentially performing brightness enhancement and denoising, ALL-E+ achieves comprehensive enhancement and optimization of low-light images, improving both subjective experience and objective evaluation. Extensive experiments show that integrating image aesthetics preferences can further improve the visual experience of enhanced results. Our results on various benchmarks also demonstrate the superiority of our method over state-of-the-art methods.
+                        Evaluating the performance of low-light image enhancement (LLE) is highly subjective, thus making integrating human preferences into LLE a necessity. Existing methods fail to consider this and present a series of potentially valid heuristic criteria for training LLE models. In this paper, we propose a new paradigm, i.e., aesthetics-guided low-light image enhancement (ALL-E), which introduces aesthetic preferences to LLE and motivates training in a reinforcement learning framework with an aesthetic reward. Each pixel, functioning as an agent, refines itself by recursive actions. We further present ALL-E+, an extended version of ALL-E, which casts a two-stage aesthetics-guided enhancement and denoising. ALL-E+ achieves low-light enhancement and denoising compensation sequentially in a unified framework, resulting in significant improvements in both subjective visual experience and objective evaluation. Extensive experiments show that integrating aesthetic preferences can further improve the visual experience of enhanced images. Our results on various benchmarks also demonstrate the superiority of our method over state-of-the-art methods. Source code is available at: https://dongl-group.github.io/project_pages/ALLE+.html
                     </p>
                     </div>
             </div>
@@ -178,7 +178,13 @@
             <div class="section">
                 <ol>
                     <p><b>The overall ALL-E and ALL-E+ framework. </b>
-                       In the ALL-E framework, the Aesthetic Policy Generation Module is devised to generate the enhanced image via action At, and the Aesthetic Assessment Module is used to get reward rt. In the ALL-E+ framework, LLE enhancement and denoising are performed sequentially to achieve image enhancement. At the t-th step, after enhancement, you can choose whether to perform denoising at this step (i.e., the part inside the blue dotted line) to prevent excessive denoising
+                       In the ALL-E framework, the Aesthetic Policy Generation Module is devised to generate the enhanced image via action At, and the Aesthetic Assessment Module is used to get reward rt. In the ALL-E+ framework, LLE enhancement and denoising are performed sequentially to achieve image enhancement.
+                    </p>
+                </ol>
+                <ol>
+                    <p>
+                        <b>This work is an extension of our earlier work <a href="https://dongl-group.github.io/project_pages/ALLE.html">ALL-E</a> that appeared at IJCAI-23. </b>
+                        We have expanded and introduced many new parts compared to the conference version. <b>First</b>, we proposed ALL-E+, an extended version of ALL-E equipped with denoising capabilities to remove the boosted noise effectively. <b>Second</b>, we have improved the aesthetic quality reward and divided the reward into aesthetic subjective reward and image objective reward to ensure better subjective visual experience and objective evaluation. <b>Third</b>, we conducted experiments based on different aesthetic oracle networks to discuss the impact of the networks further.
                     </p>
                 </ol>
             </div>
@@ -186,43 +192,47 @@
             <div class="section abstract">
                 <h2>Contributions</h2>
                 <ol>
-                    <li><p>A new paradigm for image enhancement integrating image aesthetics assessment, leveraging aesthetic score to mimic human subjective assessment as a reward to guide the enhancement. To our knowledge, this is the first attempt to solve low-light image enhancement and image denoising using aesthetics.</p>
-                    <li><p>We devise aesthetics-guided LLE (ALL-E) through reinforcement learning and treat LLE as a Markov decision process, which divides LLE into two phases: aesthetic policy generation and aesthetic assessment.</p>
-                    <li><p>We devise aesthetics-guided low-level image enhancement (ALL-E+), which can be used to train different tasks (e.g., LLE and image denoising) by designing different action space and image objective reward according to the task characteristics.</p>
-                    <li><p>ALL-E+ is evaluated against state-of-the-art competitors through comprehensive experiments in terms of visual quality, no- and full-referenced image quality assessment, and human subjective surveys. All results consistently demonstrate the superiority of ALL-E+. Moreover, the experimental results on synthetic and real noisy images show that the ALL-E+ denoising module is effective.</p>
-                </ol>
+                    <li><p>A new paradigm for LLE integrating image aesthetics assessment, leveraging aesthetic score to mimic human subjective assessment as a reward to guide the enhancement. To our knowledge, this is the first attempt to solve LLE using aesthetics. We devise aesthetics-guided LLE (ALL-E) through reinforcement learning and treat LLE as a Markov decision process, which divides LLE into two phases: aesthetic policy generation and aesthetic assessment.</p>
+                    <li><p>We propose ALL-E+, which casts the low-light image enhancement into two stages - enhancement and denoising, leveraging the unified reinforcement learning framework. ALL-E+ further improves ALL-E by incorporating noise removal capability, thereby enabling comprehensive and effective enhancement.</p>
+                    <li><p>ALL-E+ is evaluated against state-of-the-art competitors through comprehensive experiments in terms of visual quality, no- and full-referenced image quality assessment, and human subjective survey. All results consistently demonstrate the superiority of ALL-E+.</p>
             </div>
             <!--===================Results========================-->
             <div class="section"  id="results">
                 <h2>Results</h2>
                 <!--=================*******==========================-->
-                <h3>Visual quality comparison</h3>
+
+                <h3>Image quality assessment</h3>
                 <div id="result1" class="img_container">
                     <div class="leftView">
+                        <center> <img src="../project/ALL-E_plus/r1.png" height="600px" width="500px"> </center>
+                    </div>
+                    <br>
+                    <div class="leftView">
+                        <img class="std" src="../project/ALL-E_plus/r2.png">
+                    </div>
+                    </center>
+                </div>
+                <br>
+                <!--=================*******==========================-->
+
+                <h3>Visual quality comparison</h3>
+                <div id="result2" class="img_container">
+                    <div class="leftView">
                         <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/r1.png">
+                        <img class="std" src="../project/ALL-E_plus/r3.png">
 
                     </div>
                     </center>
                 </div>
                 <br>
                 <!--=================*******==========================-->
-                <h3>Image quality assessment</h3>
-                <div id="result2" class="img_container">
-                    <div class="leftView">
-                        <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/r2.png">
-                        <img class="std" src="../project/ALL-E_plus/r3.png">
-                    </div>
-                    </center>
-                </div>
-                <br>
-                <!--=================*******==========================-->
+
                 <h3>Human subjective survey</h3>
                 <div id="result3" class="img_container">
                     <div class="leftView">
                         <div class="mask" style="width:100px;height:100px"></div>
-                        <center><img src="../project/ALL-E_plus/r4.png" height="300px" width="500px"></center>
+                        <center><img src="../project/ALL-E_plus/r4.png" width="60%"></center>
+                        <br>
                         <img class="std" src="../project/ALL-E_plus/r5.png">
                     </div>
                     </center>
@@ -230,78 +240,99 @@
                 <br>
 
             </div>
+            <!--=================Denoising==========================-->
+            <div class="section" id="Denoising">
+                <h2>Experiments of Denoising</h2>
+                <br>
+                <!--=================*******==========================-->
+                <div id="denoising1" class="img_container">
+                    <div class="leftView">
+                        <div class="mask" style="width:100px;height:100px"></div>
+                        <img class="std" src="../project/ALL-E_plus/d1.png">
+                    </div>
+                    </center>
+                </div>
+                <br>
+            </div>
+
+
+
             <!--=================Ablation studies==========================-->
             <div class="section" id="ablations">
                 <h2>Ablation Studies</h2>
                 <!--=================*******==========================-->
-                <h3>Action Space Setting and Aesthetic Reward</h3>
+                <h3>Contribution of Action Space Setting and Aesthetic Subjective Reward</h3>
                 <div id="ablation1" class="img_container">
                     <div class="leftView">
                         <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/asr1.png">
-                        <img class="std" src="../project/ALL-E_plus/asr2.png">
+                        <img class="std" src="../project/ALL-E_plus/as1.png">
+                        <br>
+                        <br>
+                        <center><img src="../project/ALL-E_plus/as2.png" width="60%"></center>
+                        <br>
+                        <br>
+                        <center><img src="../project/ALL-E_plus/as3.png" width="60%"></center>
                     </div>
                     </center>
                 </div>
                 <br>
-                <h3>Aesthetic Oracle Network</h3>
+                <h3>Contribution of Aesthetic Reward and Aesthetic Oracle Network</h3>
                 <div id="ablation2" class="img_container">
                     <div class="leftView">
                         <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/asr3.png">
+                        <img class="std" src="../project/ALL-E_plus/as4.png">
+                        <br>
+                        <br>
+                        <center><img src="../project/ALL-E_plus/as5.png" width="60%"></center>
                     </div>
                     </center>
                 </div>
                 <br>
-                <h3>Denoising Module</h3>
+                <h3>Aesthetics-guided Denoising Module</h3>
                 <div id="ablation3" class="img_container">
                     <div class="leftView">
                         <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/asr4.png">
-                        <img class="std" src="../project/ALL-E_plus/asr5.png">
+                        <img class="std" src="../project/ALL-E_plus/as6.png">
+                        <br>
+                        <br>
+                        <center><img src="../project/ALL-E_plus/as7.png" width="60%"></center>
+                    </div>
+                    </center>
+                </div>
+                <br>
+                <h3>The Number of Enhancement Steps</h3>
+                <div id="ablation4" class="img_container">
+                    <div class="leftView">
+                        <div class="mask" style="width:100px;height:100px"></div>
+                        <img class="std" src="../project/ALL-E_plus/as8.png">
+                        <br>
+                        <br>
+                        <img class="std" src="../project/ALL-E_plus/as9.png">
+                    </div>
+                    </center>
+                </div>
+                <br>
+                <h3>Plug and Play into other Supervised/Unsupervised LLE Networks</h3>
+                <div id="ablation5" class="img_container">
+                    <div class="leftView">
+                        <div class="mask" style="width:100px;height:100px"></div>
+                        <br>
+                        <center><img src="../project/ALL-E_plus/as10.png" width="60%"></center>
                     </div>
                     </center>
                 </div>
                 <br>
             </div>
-            <!--=================Discussion==========================-->
-            <div class="section" id="discussions">
-                <h2>Discussion for Denoising</h2>
-                <!--=================*******==========================-->
-                <h3>Experiments on AWGN Removal</h3>
-                <div id="discussion1" class="img_container">
-                    <div class="leftView">
-                        <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/d1.png">
-                        <img class="std" src="../project/ALL-E_plus/d2.png">
-                    </div>
-                    </center>
-                </div>
-                <br>
-                <h3>Experiments on Real Noisy Images</h3>
-                <div id="discussion2" class="img_container">
-                    <div class="leftView">
-                        <div class="mask" style="width:100px;height:100px"></div>
-                        <img class="std" src="../project/ALL-E_plus/d3.png">
-                        <center><img src="../project/ALL-E_plus/d4.png" height="380px" width="500px"></center>
-                    </div>
-                    </center>
-                </div>
-                <br>
-            </div>
+
             <!--=================Materials==========================-->
             <div class="section materials"  id="materials">
                     <h2>Materials</h2>
                     <span class="links">
                         <br>
-<!--                    <a href="https://www.ijcai.org/proceedings/2023/118">PDF</a>|-->
-<!--		             <a href="https://dongl-group.github.io">Homepage</a> |-->
-<!--                    <a href="https://github.com/gaoyuanhang/ALL-E">Code</a>-->
-
 		                <a href="https://dongl-group.github.io">Homepage</a> |
                         <a href="https://www.ijcai.org/proceedings/2023/118">PDF of ALL-E</a>|
-                        <a href="https://github.com/gaoyuanhang/ALL-E">Code of ALL-E</a>|
-                        <a>PDF of ALL-E+</a>|
+                        <a href="https://github.com/NUAAG01/ALL-E">Code of ALL-E</a>|
+                        <a href="https://ieeexplore.ieee.org/document/10938859">PDF of ALL-E+</a>|
                         <a href="https://github.com/NUAAG01/ALL-E_plus">Code of ALL-E+</a>
                     </span>
                 </div>
@@ -321,13 +352,28 @@
 }
                     </pre>
                 </div>
-<!--                <h3>ALL-E+ </h3>-->
+                <div class="section bibtex">
+                    <pre>@ARTICLE{10938859,
+  author={Liang, Dong and Gao, Yuanhang and Li, Ling and Xu, Zhengyan and Huang, Sheng-Jun and Chen, Songcan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  title={Aesthetics-guided Low-light Enhancement},
+  year={2025},
+  volume={},
+  number={},
+  pages={1-18},
+  keywords={Noise reduction;Visualization;Noise;Image enhancement;Training;Reinforcement learning;Brightness;Image restoration;Image color analysis;Noise level;image aesthetics assessment;low-light enhancement;image denoising;reinforcement learning},
+  doi={10.1109/TPAMI.2025.3554639}}
+
+}
+                    </pre>
+                </div>
+
             </div>
             <!--=================Contact==========================-->
             <div class="section contact">
                 <h2 id="contact">Contact</h2>
                 <p>
-                    If you have any questions, please contact <strong>gaoyuanhang@nuaa.edu.cn</strong>.
+                    If you have any questions, please contact <strong>liangdong@nuaa.edu.cn</strong>.
                 </p>
             </div>
 
