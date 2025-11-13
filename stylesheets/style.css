@@ -78,7 +78,7 @@ center {
     height:100%;
 }
 
-.wrapper {
+/* .wrapper {
 
   margin: 0 auto;
   width: 100%;
@@ -92,7 +92,23 @@ section {
   padding-left:0px;
   background-color: #f0f0f0;
 
+} */
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1500px; /* 保持你原来的宽度上限 */
+  display: flex;
+  justify-content: center; /* 让内部内容水平居中 */
+  background-color: #f0f0f0;
 }
+
+section {
+  width: 70%;
+  padding-bottom: 50px;
+  padding-left: 0px;
+  background-color: #f0f0f0;
+}
+
 
 .members li {
     list-style-type: none;
@@ -494,3 +510,4 @@ ul,ol {
     color:#444;
   }
 }
+
