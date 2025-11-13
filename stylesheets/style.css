@@ -96,7 +96,7 @@ section {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 1500px; /* 保持你原来的宽度上限 */
+  max-width: 1460px; /* 保持你原来的宽度上限 */
   display: flex;
   justify-content: center; /* 让内部内容水平居中 */
   background-color: #f0f0f0;
@@ -510,4 +510,5 @@ ul,ol {
     color:#444;
   }
 }
+
 
