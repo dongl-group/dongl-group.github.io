@@ -23,10 +23,25 @@
         <!-- <div class="family" style="text-align: center;">
             <img src="img/family.jpg" border="0" width="85%" style="display: block; margin: 0 auto;">
         </div> -->
-		<div class="family" style="text-align:center; display:flex; justify-content:center; gap:20px;">
-    		<img src="img/family.jpg" style="height:412px; object-fit:cover;">
-    		<img src="img/family3.jpg" style="height:412px; object-fit:cover;">
-			<img src="img/family2.jpg" style="height:412px; object-fit:cover;display:block;">
+		<div class="family-carousel" aria-label="Group photos">
+			<div class="family-slides">
+				<div class="family-slide is-active">
+					<img src="img/group0.jpg" alt="Group photo 1">
+				</div>
+				<div class="family-slide">
+					<img src="img/group1.jpg" alt="Group photo 2">
+				</div>
+				<div class="family-slide">
+					<img src="img/group2.jpg" alt="Group photo 3">
+				</div>
+			</div>
+			<button class="family-carousel-button family-carousel-prev" type="button" aria-label="Previous photo">&#10094;</button>
+			<button class="family-carousel-button family-carousel-next" type="button" aria-label="Next photo">&#10095;</button>
+			<div class="family-carousel-dots" aria-label="Choose a photo">
+				<button class="is-active" type="button" aria-label="Show photo 1" aria-current="true"></button>
+				<button type="button" aria-label="Show photo 2"></button>
+				<button type="button" aria-label="Show photo 3"></button>
+			</div>
 		</div>
 
 
@@ -2013,6 +2028,73 @@ for Realistic Atmospheric Turbulence Synthesis
                 <a href="https://clustrmaps.com/site/1btvx"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=qANUgeV0K7GEMjm_c3AdBYcpoq1JUGk-wEHUWsV5YWk&cl=ffffff" width="300px"/></a>
             </center>
 </div>
+
+<script>
+    (() => {
+        const carousel = document.querySelector('.family-carousel');
+        if (!carousel) return;
+
+        const slides = Array.from(carousel.querySelectorAll('.family-slide'));
+        const dots = Array.from(carousel.querySelectorAll('.family-carousel-dots button'));
+        const previousButton = carousel.querySelector('.family-carousel-prev');
+        const nextButton = carousel.querySelector('.family-carousel-next');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let currentIndex = 0;
+        let autoplayTimer;
+
+        const showSlide = (index) => {
+            currentIndex = (index + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('is-active', slideIndex === currentIndex);
+                slide.setAttribute('aria-hidden', slideIndex === currentIndex ? 'false' : 'true');
+            });
+            dots.forEach((dot, dotIndex) => {
+                const isCurrent = dotIndex === currentIndex;
+                dot.classList.toggle('is-active', isCurrent);
+                if (isCurrent) {
+                    dot.setAttribute('aria-current', 'true');
+                } else {
+                    dot.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        const stopAutoplay = () => window.clearInterval(autoplayTimer);
+        const startAutoplay = () => {
+            if (prefersReducedMotion) return;
+            stopAutoplay();
+            autoplayTimer = window.setInterval(() => showSlide(currentIndex + 1), 3000);
+        };
+
+        previousButton.addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+            startAutoplay();
+        });
+        nextButton.addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+            startAutoplay();
+        });
+        dots.forEach((dot, index) => dot.addEventListener('click', () => {
+            showSlide(index);
+            startAutoplay();
+        }));
+        carousel.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') previousButton.click();
+            if (event.key === 'ArrowRight') nextButton.click();
+        });
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        carousel.addEventListener('focusin', stopAutoplay);
+        carousel.addEventListener('focusout', startAutoplay);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) stopAutoplay();
+            else startAutoplay();
+        });
+
+        showSlide(0);
+        startAutoplay();
+    })();
+</script>
 
 </body>
 
