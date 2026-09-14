@@ -373,6 +373,121 @@ footer {
 
 
 
+.family-carousel {
+  position: relative;
+  width: 100%;
+  height: 465px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 8px;
+}
+
+.family-slides,
+.family-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.family-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.55s ease;
+}
+
+.family-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.family-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.family-carousel-button {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  font-size: 24px;
+  line-height: 42px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.family-carousel-button:hover,
+.family-carousel-button:focus-visible {
+  background: rgba(0, 0, 0, 0.8);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.family-carousel-prev {
+  left: 14px;
+}
+
+.family-carousel-next {
+  right: 14px;
+}
+
+.family-carousel-dots {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  left: 50%;
+  display: flex;
+  gap: 9px;
+  transform: translateX(-50%);
+}
+
+.family-carousel-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.family-carousel-dots button.is-active {
+  background: #fff;
+}
+
+@media (max-width: 620px) {
+  .family-carousel {
+    height: min(412px, 72vw);
+    min-height: 240px;
+  }
+
+  .family-carousel-button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    line-height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .family-slide {
+    transition: none;
+  }
+}
+
 @media print, screen and (max-width: 980px) {
 h2 {
    font-size:16px;
@@ -399,7 +514,6 @@ h3 {
     width:70%;
     height:30%;
 }
-
 
 p{
 font-size:11px;
