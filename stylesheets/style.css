@@ -373,119 +373,71 @@ footer {
 
 
 
-.family-carousel {
-  position: relative;
-  width: 100%;
-  height: 465px;
-  margin: 0 auto;
-  overflow: hidden;
-  background: transparent;
-  border-radius: 8px;
-}
-
-.family-slides,
-.family-slide {
-  width: 100%;
-  height: 100%;
-}
-
-.family-slide {
-  position: absolute;
-  inset: 0;
+/* Photo tiles form the initials of Computer Vision. */
+.cv-wall {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.55s ease;
+  gap: 44px;
+  width: 100%;
+  max-width: 900px;
+  margin: 26px auto 32px;
+  align-items: stretch;
 }
 
-.family-slide.is-active {
-  opacity: 1;
-  visibility: visible;
+.cv-letter {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 7px;
+  grid-template-rows: repeat(3, 92px);
 }
 
-.family-slide img {
+.cv-letter-c {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-radius: 64px 5px 5px 64px;
+  overflow: hidden;
+}
+.cv-letter-v {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  clip-path: polygon(0 0, 28% 0, 50% 68%, 72% 0, 100% 0, 64% 100%, 36% 100%);
+}
+.cv-letter-v .cv-photo { border-radius: 0; }
+.cv-photo {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.09);
+}
+.cv-photo img {
   display: block;
   width: 100%;
+  max-width: none;
   height: 100%;
   object-fit: cover;
+  transition: transform 180ms ease;
 }
-
-.family-carousel-button {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.55);
-  font-size: 24px;
-  line-height: 42px;
-  cursor: pointer;
-  transform: translateY(-50%);
-}
-
-.family-carousel-button:hover,
-.family-carousel-button:focus-visible {
-  background: rgba(0, 0, 0, 0.8);
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-.family-carousel-prev {
-  left: 14px;
-}
-
-.family-carousel-next {
-  right: 14px;
-}
-
-.family-carousel-dots {
-  position: absolute;
-  z-index: 2;
-  bottom: 14px;
-  left: 50%;
-  display: flex;
-  gap: 9px;
-  transform: translateX(-50%);
-}
-
-.family-carousel-dots button {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.45);
-  cursor: pointer;
-}
-
-.family-carousel-dots button.is-active {
-  background: #fff;
-}
+.cv-photo:hover img { transform: scale(1.06); }
+.cv-photo:focus-visible { outline: 3px solid #258fb8; outline-offset: 3px; }
+.c1 { grid-area: 1 / 1 / 2 / 4; }
+.c5 { grid-area: 1 / 4 / 2 / 7; }
+.c2 { grid-area: 2 / 1 / 3 / 3; }
+.c3 { grid-area: 3 / 1 / 4 / 4; }
+.c4 { grid-area: 3 / 4 / 4 / 7; }
+.v1 { grid-area: 1 / 1; }
+.v2 { grid-area: 1 / 2; }
+.v3 { grid-area: 2 / 1; }
+.v4 { grid-area: 2 / 2; }
+.v5 { grid-area: 3 / 1 / 4 / 3; width: 46%; justify-self: center; }
 
 @media (max-width: 620px) {
-  .family-carousel {
-    height: min(412px, 72vw);
-    min-height: 240px;
-  }
-
-  .family-carousel-button {
-    width: 36px;
-    height: 36px;
-    font-size: 20px;
-    line-height: 36px;
-  }
+  .cv-wall { gap: 16px; margin: 20px auto 26px; }
+  .cv-letter { gap: 4px; grid-template-rows: repeat(3, clamp(48px, 12vw, 72px)); }
+  .cv-photo { border-radius: 3px; }
+  .cv-letter-c { border-radius: 30px 3px 3px 30px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .family-slide {
-    transition: none;
-  }
+  .cv-photo img { transition: none; }
 }
 
 @media print, screen and (max-width: 980px) {
