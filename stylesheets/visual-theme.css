@@ -1,0 +1,103 @@
+html {
+  background: #edf2f6;
+}
+
+body {
+  min-height: 100vh;
+  color: #263746;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(204, 223, 236, 0.52), transparent 55%),
+    #edf2f6;
+  font-family: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: none;
+  background: transparent;
+}
+
+section {
+  box-sizing: border-box;
+  width: min(1200px, calc(100% - 48px));
+  margin: 30px auto;
+  padding: clamp(24px, 4.2vw, 54px);
+  float: none;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e0e8ee;
+  border-radius: 18px;
+  box-shadow: 0 14px 45px rgba(41, 66, 86, 0.08);
+}
+
+section h1,
+section h2,
+section h3 {
+  color: #203b50;
+  font-family: Inter, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+
+section h1 {
+  margin: 0 0 24px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.2;
+}
+
+section h2 {
+  margin: 34px 0 14px;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+section h3 {
+  font-size: 20px;
+}
+
+section p {
+  color: #405363;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+section h1 + p,
+section h1 + p + p {
+  margin-bottom: 16px;
+}
+
+section div[style*="line-height"] p {
+  color: #455a6a;
+  font-size: 16px;
+  line-height: 2.15;
+  letter-spacing: 0.015em;
+}
+
+section a,
+section a:visited {
+  color: #147da0;
+}
+
+section a:hover {
+  color: #0d5e7b;
+}
+
+.cv-wall {
+  margin-top: 24px;
+}
+
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  section {
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 22px 18px;
+    border-radius: 13px;
+  }
+  section h1 { margin-bottom: 18px; }
+  section h2 { margin-top: 28px; font-size: 22px; }
+  section p { font-size: 16px; }
+  section div[style*="line-height"] p { font-size: 15px; }
+}
