@@ -84,8 +84,87 @@ section a:hover {
   color: #0d5e7b;
 }
 
-.cv-wall {
-  margin-top: 24px;
+.lab-gallery { margin: 26px 0 30px; }
+.lab-gallery-row + .lab-gallery-row { margin-top: 16px; }
+.lab-gallery-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #536b7b;
+  letter-spacing: 0.03em;
+}
+.lab-film-controls { display: flex; gap: 6px; }
+.lab-film-controls[hidden] { display: none; }
+.lab-film-controls button {
+  width: 32px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #cbd7de;
+  border-radius: 5px;
+  background: #fff;
+  color: #203b50;
+  font-size: 19px;
+  cursor: pointer;
+}
+.lab-film-controls button:hover:not(:disabled) { background: #edf2f6; }
+.lab-film-controls button:disabled { opacity: 0.35; cursor: default; }
+.lab-filmstrip {
+  padding: 12px 0;
+  overflow-x: auto;
+  border-radius: 8px;
+  background: #334955;
+  scrollbar-width: thin;
+  scrollbar-color: #8ca2ae #334955;
+  scroll-snap-type: x proximity;
+}
+.lab-filmstrip-track {
+  position: relative;
+  display: flex;
+  gap: 7px;
+  width: max-content;
+  min-width: 100%;
+  padding: 7px 8px;
+  box-sizing: border-box;
+}
+.lab-filmstrip-track::before,
+.lab-filmstrip-track::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #cbd7de 0 8px, transparent 8px 22px);
+}
+.lab-filmstrip-track::before { top: -5px; }
+.lab-filmstrip-track::after { bottom: -5px; }
+.lab-photo {
+  display: block;
+  flex: 0 0 auto;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 3px;
+  scroll-snap-align: start;
+}
+.lab-photo img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 100%;
+}
+.lab-photo:hover { filter: brightness(1.06); }
+.lab-photo:focus-visible,
+.lab-filmstrip:focus-visible,
+.lab-film-controls button:focus-visible {
+  outline: 3px solid #147da0;
+  outline-offset: 3px;
+}
+@media (max-width: 620px) {
+  .lab-gallery { margin: 22px 0 26px; }
+  .lab-photo { height: 145px; }
 }
 
 @media (max-width: 620px) {
